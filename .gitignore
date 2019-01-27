@@ -1,0 +1,12 @@
+*.DS_Store
+*.pyc
+*.elc
+*.#*
+ido.last
+ac-comphist.dat
+emacs.desktop
+history
+tramp
+recentf
+network-security.data
+elpa
