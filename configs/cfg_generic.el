@@ -265,3 +265,17 @@
 (use-package markdown-mode
   :ensure t
   :mode "\\.md\\'")
+
+(use-package direx
+  :ensure t
+  :defer t)
+
+(use-package shackle
+  :ensure t)
+
+(use-package yaml-mode
+  :ensure t
+  :mode (
+   "\\.yml\\'"
+   "\\.yaml\\'"
+  ))
