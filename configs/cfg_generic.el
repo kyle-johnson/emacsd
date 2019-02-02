@@ -55,10 +55,11 @@
 (show-paren-mode +1) ;; show paired parenthasis
 (delete-selection-mode +1) ;; delete words if they are selected and you start typing
 (auto-compression-mode +1) ;; auto compress/decompress files
-(line-number-mode +1)
+;;(line-number-mode +1)
 (auto-fill-mode +1)
-(global-linum-mode +1) ;; give me some line numbers
-(icomplete-mode +1) ;; incremental minibuffer completion
+;;(global-linum-mode +1) ;; give me some line numbers
+(global-display-line-numbers-mode t)
+;;(icomplete-mode +1) ;; incremental minibuffer completion
 (global-font-lock-mode +1) ;; make pretty fonts?
 (when (fboundp 'shell-command-completion-mode)
   (shell-command-completion-mode +1))
@@ -108,7 +109,7 @@
 (toggle-debug-on-error nil) ;; show traceback on error
 (fset 'yes-or-no-p 'y-or-n-p) ;; allows you to type "y" instead of "yes" on exit
 
-(mouse-avoidance-mode 'cat-and-mouse) ;; mouse jumps away when typing under it
+;;(mouse-avoidance-mode 'cat-and-mouse) ;; mouse jumps away when typing under it
 (if (load "mwheel" t)
     (mwheel-install)) ;; turn on the mouse wheel
 
@@ -223,6 +224,7 @@
   ;; disable jshint since we prefer eslint checking
   (setq-default flycheck-emacs-lisp-initialize-packages t
                 flycheck-disabled-checkers '(json-jsonlist javascript-jshint handlebars))
+  (setq flycheck-check-syntax-automatically '(mode-enabled save))  ;; possibly add new-line
 
   ;; Fixups
   ;; use eslint with web-mode for js/jsx files
@@ -248,11 +250,11 @@
               (window-height   . 0.33)))
   )
 
-(use-package flycheck-pos-tip
-  :ensure t
-  :defer t
-  :config
-  (with-eval-after-load 'flycheck (flycheck-pos-tip-mode)))
+;; (use-package flycheck-pos-tip
+;;   :ensure t
+;;   :defer t
+;;   :config
+;;   (with-eval-after-load 'flycheck (flycheck-pos-tip-mode)))
 
 (use-package diminish
   :ensure t
