@@ -39,8 +39,10 @@
 ;;           '(lambda () (highlight-80+-mode 1)) t)
 
 ;; idle highlight ftw!
-(add-hook 'python-mode-hook
-          '(lambda () (idle-highlight)))
+(use-package idle-highlight-mode
+  :ensure t
+  :hook (python-mode-hoook . idle-highlight-mode))
+
 
 ;; trailing whitespace sucks
 (add-hook 'python-mode-hook
