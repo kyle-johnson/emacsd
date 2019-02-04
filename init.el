@@ -71,7 +71,7 @@
  '(magit-git-executable "/usr/bin/git")
  '(package-selected-packages
    (quote
-    (flycheck-gometalinter key-chord web-mode go-eldoc company-go company-quickhelp markdown-mode diminish spaceline powerline company-tern tern go-add-tags flycheck-pos-tip flycheck json-mode hcl-mode go-mode yaml-mode comment-dwim-2 exec-path-from-shell prettier-js add-node-modules-path js2-mode typescript-mode elixir-mode hydra ivy-rich flx use-package counsel ivy)))
+    (dockerfile-mode go-rename idle-highlight-mode flycheck-golangci-lint flycheck-gometalinter key-chord web-mode go-eldoc company-go company-quickhelp markdown-mode diminish spaceline powerline company-tern tern go-add-tags flycheck-pos-tip flycheck json-mode hcl-mode go-mode yaml-mode comment-dwim-2 exec-path-from-shell prettier-js add-node-modules-path js2-mode typescript-mode elixir-mode hydra ivy-rich flx use-package counsel ivy)))
  '(paren-match-face (quote paren-face-match-light))
  '(paren-sexp-mode t))
 

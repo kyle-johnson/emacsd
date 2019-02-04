@@ -20,7 +20,6 @@
   ;;               (set (make-local-variable 'company-backends) '(company-go))
   ;;               ;; (company-mode)
   ;;               (flycheck-mode)))
-   
   ;;  )
   :config
   (setq gofmt-command "goimports")    ;; auto-imports ftw
@@ -28,24 +27,24 @@
   ;; :bind ("TAB" . completation-at-point)
   )
 
-(use-package company-go
-  :ensure t
-  ;; :config
-  ;; (setq tab-width 2)
-  ;; (setq company-tooltip-limit 20)
-  ;; (setq company-idle-delay .3)
-  ;; (setq company-echo-delay 0)
-  ;; (setq company-begin-commands '(self-insert-command))
-  :config
-  (with-eval-after-load 'company
-    (add-to-list 'company-backends 'company-go))
-  )
+;; (use-package company-go
+;;   :ensure t
+;;   ;; :config
+;;   ;; (setq tab-width 2)
+;;   ;; (setq company-begin-commands '(self-insert-command))
+;;   :config
+;;   (with-eval-after-load 'company
+;;     (add-to-list 'company-backends 'company-go))
+;;   (setq company-tooltip-limit 20)
+;;   (setq company-idle-delay .3)
+;;   (setq company-echo-delay 0)
+;;   )
 
 
-(use-package go-eldoc
-  :ensure t
-  :hook
-  (go-mode . go-eldoc-setup))
+;; (use-package go-eldoc
+;;   :ensure t
+;;   :hook
+;;   (go-mode . go-eldoc-setup))
 
 (use-package go-direx
   :ensure t
@@ -66,14 +65,25 @@
   :ensure t
   :defer)
 
-(use-package flycheck-gometalinter
+;; (use-package flycheck-gometalinter
+;;   :ensure t
+;;   :init
+;;   ;; skip linting for vendor dirs
+;;   (setq flycheck-gometalinter-vendor t)
+;;   ;; only show errors
+;;   (setq flycheck-gometalinter-errors-only t)
+;;   ;; only run fast linters
+;;   (setq flycheck-gometalinter-fast t)
+;;   ;; default is 5s
+;;   (setq flycheck-gometalinter-deadline "15s")
+;;   ;; not everything works with gomodules yet
+;;   ;; gotype iwould be suuuuper nice, watch this (VSCode folks are ignoring it): https://github.com/golang/go/issues/24661
+;;   (setq flycheck-gometalinter-disable-linters '("gotype" "gocyclo" "maligned" "dupl" "interfacer"))
+;;   :config
+;;   (flycheck-gometalinter-setup))
+
+(use-package flycheck-golangci-lint
   :ensure t
-  :init
-  ;; skip linting for vendor dirs
-  (setq flycheck-gometalinter-vendor t)
-  ;; only show errors
-  (setq flycheck-gometalinter-errors-only t)
-  ;; only run fast linters
-  (setq flycheck-gometalinter-fast t)
+  :hook (go-mode . flycheck-golangci-lint-setup)
   :config
-  (flycheck-gometalinter-setup))
+  (setq flycheck-golangci-lint-fast t))
